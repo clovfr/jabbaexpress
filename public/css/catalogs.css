@@ -1,0 +1,18 @@
+main > article {
+  display: grid;
+  grid-template: auto / auto;
+  grid-gap: 1em;
+  grid-auto-flow: row dense;
+  justify-items: stretch;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+}
+main > article > header {
+  grid-column: 1 / -1;
+}
+@media screen and (min-width: 60em) {
+  main > article {
+    grid-template: auto / repeat(auto-fit, 16em);
+  }
+}

@@ -1,0 +1,232 @@
+    <main class="catalog">
+
+      <section class="filters">
+        <header>
+          <h2>Filtres</h2>
+        </header>
+
+      </section>
+
+      <article>
+
+        <product-preview>
+          <h2 slot="name">Blue Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers bleus.</p>
+          </div>
+          <div slot="price">123.99</div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+        <product-preview>
+          <h2 slot="name">Blue Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers bleus.</p>
+          </div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+        <product-preview>
+          <h2 slot="name">Blue Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers bleus.</p>
+          </div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+        <product-preview>
+          <h2 slot="name">Blue Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers bleus.</p>
+          </div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+        <product-preview>
+          <h2 slot="name">Blue Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers bleus.</p>
+          </div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+        <product-preview>
+          <h2 slot="name">Blue Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers bleus.</p>
+          </div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+        <product-preview>
+          <h2 slot="name">Blue Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers bleus.</p>
+          </div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+        <product-preview>
+          <h2 slot="name">Batterie</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Alimentation pour blaster.</p>
+          </div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+        <product-preview>
+          <h2 slot="name">Blue Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers bleus.</p>
+          </div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+        <product-preview>
+          <h2 slot="name">Blue Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers bleus.</p>
+          </div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+        <product-preview>
+          <h2 slot="name">Blue Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <div slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers bleus.</p>
+          </div>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+        
+        <product-preview>
+          <h2 slot="name">Red Crystal</h2>
+          <h3 slot="category">Blaster Parts</h3>
+          <span slot="description">
+            <p>Ce crystal se monte sur un blaster stantard afin de tirer des lasers rouges.</p>
+          </span>
+          
+          <script type="application/ld+json">
+            
+          </script>
+        </product-preview>
+
+      </article>
+
+    </main>
+
+
+    <!-- Templates -->
+
+    <template id="product-preview">
+      <style>
+        article {
+          display: grid;
+          grid-template: auto / auto;
+          background-color:hsl(0, 0%, 18%);
+          border-radius: .25em;
+          padding: .5em;
+          grid-gap: .25em;
+        }
+        header,
+        footer {
+          text-align: center;
+          font-size: 1em;
+        }
+        h2 {
+          font-size: 1em;
+        }
+
+        img {
+          
+          width: 100%;
+          height: 12rem;
+          object-fit: cover;
+        }
+        a {
+          text-decoration: none;
+          color: hsl(0, 0%, 90%);
+        }
+      </style>
+      <a href="">
+        <article class="product">
+          
+          <img loading="lazy" src="https://clovis.gauzy.fr/realisations/A-Wa.webp" />
+
+          <header>
+            <slot name="name"></slot>
+          </header>
+
+          <footer>
+            <slot name="price"></slot>
+          </footer>
+        </article>
+      </a>
+
+    </template>
+
+
+    <!-- <script src="../public/js/customElements.js"></script> -->
+
+    <script>
+      customElements.define(
+        'product-preview',
+        class extends HTMLElement {
+
+          constructor () {
+            super()
+            const templateContent = document.getElementById('product-preview').content
+            this.attachShadow({ mode: 'open' })
+              .appendChild(templateContent.cloneNode(true))
+          }
+
+        }
+      )
+    </script>
+    
+
+  </body>
+</html>

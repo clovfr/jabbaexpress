@@ -1,0 +1,55 @@
+<template id="product-full">
+  <style>
+    @media screen and (min-width: 60em) {
+      article {
+        display: grid;
+        grid-template: auto / 2fr 1fr;
+        grid-gap: 1em;
+        padding: 1em;
+        background-color: hsl(0, 0%, 18%);
+      }
+      article > header {
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+        padding: .5em;
+      }
+      a {
+        color: hsl(0, 0%, 90%);
+      }
+      footer {
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+        text-align: center;
+      }
+      .description {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+      }
+      .images {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        justify-self: center;
+      }
+    }
+  </style>
+
+  <article class="product">
+
+    <header>
+      <h2 class="name"></h2>
+      <p class="brand"></p>
+    </header>
+
+    <div class="images">
+      <img class="image"/>
+    </div>
+
+    <div class="description"></div>
+    
+    <footer>
+      <p class="offers"></p>  
+      <button>Ajouter au panier</button>
+    </footer>
+  </article>
+
+</template>

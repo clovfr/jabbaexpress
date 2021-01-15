@@ -1,0 +1,35 @@
+@font-face{
+  font-family:"Cantarell-webfont";
+  src:url("/public/fonts/cantarell/Cantarell-ExtraBold.otf");
+  font-weight:800;
+  font-style:normal;
+  font-display:fallback
+}
+@font-face{
+  font-family:"Cantarell-webfont";
+  src:url("/public/fonts/cantarell/Cantarell-Bold.otf");
+  font-weight:700;
+  font-style:normal;
+  font-display:fallback
+}
+@font-face{
+  font-family:"Cantarell-webfont";
+  src:url("/public/fonts/cantarell/Cantarell-Regular.otf");
+  font-weight:500;
+  font-style:normal;
+  font-display:fallback
+}
+@font-face{
+  font-family:"Cantarell-webfont";
+  src:url("/public/fonts/cantarell/Cantarell-Light.otf");
+  font-weight:300;
+  font-style:normal;
+  font-display:fallback
+}
+@font-face{
+  font-family:"Cantarell-webfont";
+  src:url("/public/fonts/cantarell/Cantarell-Thin.otf");
+  font-weight:100;
+  font-style:normal;
+  font-display:fallback
+}

@@ -1,0 +1,59 @@
+<template id="search-form">
+
+  <style>
+    form {
+      display: grid;
+      grid-template: auto auto / 1fr 4em;
+    }
+    ol {
+      display: flex;
+      grid-column: 1 / 3;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      display: inline;
+    }
+    li:not(:last-of-type)::after {
+      content: '|';
+      color: hsl(0, 0%, 20%);
+    }
+    a {
+      font-size: .75em;
+      color: hsl(0, 0%, 50%);
+      text-decoration: none;
+      display: inline-block;
+      padding: .5em;
+      color: hsl(0, 0%, 80%);
+    }
+    input[type="search"],
+    input[type="submit"] {
+      border: .15em solid hsl(0, 0%, 0%);
+      border-radius: .5em 0 0 .5em;
+      font-size: 100%;
+      padding: .25em .75em;
+      background-color:hsl(0, 0%, 35%);
+      color: hsl(0, 0%, 90%);
+    }
+    input[type="submit"] {
+      border-radius: 0 .5em .5em 0;
+      background-color: hsl(0, 0%, 0%);
+    }
+    input[type="search"]::placeholder {
+      color: hsl(0, 0%, 70%);
+    }
+  </style>
+
+  <form>
+    <input type="search" placeholder="moteur luminique" />
+    <input type="submit" value="[l]" />
+    <ol>
+      <li><a href="#">alimentation sous systèmes</a></li>
+      <li><a href="#">carbonite</a></li>
+      <li><a href="#">générateur champ déflection</a></li>
+      <li><a href="#">carter de phare</a></li>
+    </ol>
+  </form>
+
+</template>

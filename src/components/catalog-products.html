@@ -1,0 +1,39 @@
+<template id="catalog-products">
+
+  <style>
+    @media screen and (min-width: 60em) {
+      article {
+        display: grid;
+        grid-template: auto / 16rem 1fr;
+        grid-gap: 1em;
+        grid-auto-flow: row dense;
+      }
+
+      article > article {
+        display: grid;
+        grid-template: auto / repeat(auto-fill, minmax(11rem, auto));
+        grid-gap: 1em;
+        grid-auto-flow: row dense;
+      }
+
+      .filters {
+        grid-column: 1 / 2;
+        background-color: hsl(0, 0%, 5%);
+      }
+    }
+  </style>
+  
+  <section class="filters">
+    <header>
+      <h2>Filtres</h2>
+    </header>
+
+  </section>
+
+  <article>
+    <header>
+      <slot name="name"></slot>
+    </header>
+    <slot name="screen"></slot>
+  </article>
+</template>

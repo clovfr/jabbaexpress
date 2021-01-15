@@ -1,0 +1,95 @@
+<template id="user-bar">
+
+  <style>
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ol.userbar {
+      background-color:hsl(0, 0%, 10%);
+      border-bottom: 1px solid;
+      border-image-source: linear-gradient(to right,hsla(0, 0%, 5%, 0), hsl(0, 0%, 5%));
+      border-image-slice: 1;
+      display: flex;
+      justify-content: end;
+      align-content: center;
+      font-size: .8em;
+      color: hsl(0, 0%, 80%);
+    }
+    li {
+      margin: 0;
+      padding: 0;
+    }
+    ol > li:not(:last-of-type) {
+      border-right: 1px solid hsl(0, 0%, 5%);
+    }
+
+    a {
+      text-decoration: none;
+      display: inline-block;
+      color: hsl(0, 0%, 80%);
+      padding: .7em 1.5em;
+    }
+
+    a:hover {
+      background-color: hsl(0, 0%, 15%);
+    }
+
+    li:hover > section {
+      display: inherit;
+    }
+
+    .monCompte {
+      display: none;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      background-color: hsl(0, 0%, 15%);
+      border-radius: 0 0 0 .5em;
+      box-shadow: .25em .25em .25em hsla(0, 0%, 0%,.5);
+    }
+    .monCompte ol {
+      display: flex;
+      flex-flow: column nowrap;
+      text-align: left;
+    }
+    .monCompte li:not(:last-of-type) {
+      border-top: 1px solid hsl(0, 0%, 5%);
+    }
+    .monCompte img {
+      margin: 1em 3vw;
+      width: 8em;
+      height: 8em;
+      border-radius: 4em;
+      object-fit: cover;
+    }
+    .monCompte h2 {
+      font-size: 1.15em;
+      margin: .5em .5em 1em;
+    }
+  </style>
+
+  <div>
+    <ol class="userbar">
+      <li><a href="#">Français / EUR</a></li>
+      <li><a href="#">Liste d'envies</a></li>
+      <li><a href="#">Commandes</a></li>
+      <li><a href="#">Mon compte</a>
+        <section class="monCompte">
+          <img src="/img/user0.png" />
+          <h2>Han Solo</h2>
+          <ol>
+            <li><a href="#">Mes commandes</a></li>
+            <li><a href="#">Centre de messagerie</a></li>
+            <li><a href="#">Liste d'envies</a></li>
+            <li><a href="#">Mes bons de réduction</a></li>
+            <li><a href="#">Parainage</a></li>
+            <li><a href="#">Se déconnecter</a></li>
+          </ol>
+        </section>
+      </li>
+    </ol>
+  </div>
+  
+</template>
