@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 
 app.get('/favicon.ico', (req, res) => res.redirect(308, '/img/favicon.webp'))
 app.use(express.static('public', {
-  maxAge: 360000
+  maxAge: 31536000
 }))
 
 app.get('/', (req, res, next) => {
