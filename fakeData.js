@@ -1,8 +1,8 @@
 const webSite = {
   '@context': 'https://schema.org/',
   '@type': 'WebSite',
-  '@id': 'https://jabbaexpress.space',
-  url: 'https://jabbaexpress.space',
+  '@id': 'https://jabbaexpress.clov.fr',
+  url: 'https://jabbaexpress.clov.fr',
   name: 'JabbaExpress',
   description: 'Le plus grand choix de contrebande de la Galaxie'
 }
@@ -10,7 +10,7 @@ const brands = [
   {
     '@context': 'https://schema.org/',
     '@type': 'Brand',
-    '@id': 'corporation-dingenieurie-corellienne',
+    '@id': '/brands/corporation-dingenieurie-corellienne',
     name: "Corporation d'Ingénieurie Corellienne"
   },
   {
@@ -48,7 +48,7 @@ const brands = [
   {
     '@context': 'https://schema.org/',
     '@type': 'Brand',
-    '@id': 'koensayr',
+    '@id': '/brands/koensayr',
     name: 'Koensayr'
   },
   {
@@ -343,7 +343,7 @@ const catalogs = [
           '@type': 'ListItem',
           position: 3,
           item: {
-            '@id': 'https://jabbaexpress.clov.fr/catalogs/speeders',
+            '@id': 'https://jabbaexpress.clov.fr/catalogs/spaceships',
             '@type': 'Collection',
             name: 'Spaceships'
           }

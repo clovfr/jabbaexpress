@@ -19,24 +19,24 @@ document.querySelectorAll('template')
           // Invoked each time the custom element is appended into a document-connected element.
           // This will happen each time the node is moved, and may happen before the element's
           // contents have been fully parsed.
-            console.debug('\'product-full\' added to page')
+            console.debug(`'${template.id}' added to page`)
             this.parseMicrodatas()
           }
 
           disconnectedCallback () {
           // Invoked each time the custom element is disconnected from the document's DOM.
-            console.debug('product-full\' removed from page.')
+            console.debug(`'${template.id}' removed from page.`)
           }
 
           adoptedCallback () {
           // Invoked each time the custom element is moved to a new document.
-            console.debug('product-full\' moved to new page.')
+            console.debug(`'${template.id}' moved to new page.`)
           }
 
           attributeChangedCallback (name, oldValue, newValue) {
           // Invoked each time one of the custom element's attributes is added, removed, or changed.
           // Which attributes to notice change for is specified in a static get `observedAttributes` method.
-            console.debug(`product-full' attribute '${name}' changed.`)
+            console.debug(`'${template.id}' attribute '${name}' changed from '${oldValue}' to '${newValue}'.`)
           }
 
           parseMicrodatas () {
@@ -55,6 +55,7 @@ document.querySelectorAll('template')
                     switch (key) {
                       case 'offers':
                         el.innerText = val.price + ' €'
+                        break
                       case 'image':
                         el.src = val
                         break
