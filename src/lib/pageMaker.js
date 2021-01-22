@@ -1,17 +1,22 @@
-const fs = require('fs')
 const path = require('path')
 const domino = require('domino')
-const slug = require('slug')
-const sass = require('sass')
+const minify = require('minify')
 
 const __src = path.join(__dirname, '..')
-const __components = path.join(__src, 'components')
-const __templates = path.join(__src, 'templates')
+const templates = require(path.join(__src, 'lib', 'templates'))
+const components = require(path.join(__src, 'lib', 'components'))
 
-const { webSite, catalogs } = require(path.join(__src, '..', 'fakeData.js'))
+const { webSite, catalogs, brands } = require(path.join(__src, '..', 'fakeData.js'))
 
-module.exports = (data, templates = []) => {
-  const window = domino.createWindow(fs.readFileSync(path.join(__templates, 'index.html')))
+let script
+
+minify(path.join(__src, '..', 'public', 'js', 'customElements.js'))
+  .then(html => {
+    script = html
+  })
+
+module.exports = (data, customElements = []) => {
+  const window = domino.createWindow(templates.index)
   const document = window.document
 
   // HEAD
@@ -52,11 +57,19 @@ module.exports = (data, templates = []) => {
   const ol = document.createElement('ol')
   catalogs.forEach(cat => {
     if (!cat.isPartOf) {
-      let cate = `<li><a href="${cat['@id'] || '/catalogs/' + slug(cat.name.replace(/-/g, ''))}">${cat.name}</a>`
+      let cate = `<li><a href="${cat.id}">${cat.name}</a>`
       let catee = ''
       catalogs.forEach(cta => {
-        if (cta.isPartOf && cta.isPartOf === cat['@id']) {
-          catee += `<li><a href="${cta['@id'] || '/catalogs/' + slug(cta.name.replace(/-/g, ''))}">${cta.name}</a></li>`
+        if (cta.isPartOf && cta.isPartOf === cat.id) {
+          catee += `<li><a href="${cta.id}">${cta.name}</a>`
+          let cateee = ''
+          catalogs.forEach(ctx => {
+            if (ctx.isPartOf && ctx.isPartOf === cta.id) {
+              cateee += `<li><a href="${ctx.id}">${ctx.name}</a>`
+            }
+          })
+          if (cateee) catee += `<ol>${cateee}</ol>`
+          catee += '</li>'
         }
       })
       if (catee) cate += `<ol>${catee}</ol>`
@@ -64,38 +77,24 @@ module.exports = (data, templates = []) => {
       ol.insertAdjacentHTML('beforeend', cate)
     }
   })
+  let brs = '<li><a href="/brands/">Brands</a><ol>'
+  brands.forEach(brand => {
+    brs += `<li><a href="${brand.id}">${brand.name}</a>`
+  })
+  ol.insertAdjacentHTML('beforeend', brs + '</ol></li>')
   nav.appendChild(ol)
   document.body.appendChild(nav)
 
-  templates.push('user-bar')
-  templates.push('search-form')
-  templates.push('cart-icon')
+  customElements.push('user-bar')
+  customElements.push('search-form')
+  customElements.push('cart-icon')
 
-  templates.forEach(tpl => {
-    document.body.insertAdjacentHTML('beforeend', fs.readFileSync(path.join(__components, `${tpl}.html`), 'utf8'))
+  customElements.forEach(el => {
+    document.body.insertAdjacentHTML('beforeend', components[el])
   })
 
-  /* const templ = document.querySelectorAll('template')
-  for (let i = 0; i < templ.length; i++) {
-    // console.log(templ[i].innerHTML)
-    if (templ[i].querySelector('style')) {
-      templ[i].querySelector('style').innerHTML= sass.renderSync({
-        data: templ[i].innerHTML,
-        outputStyle: 'compressed'
-      }).css
-    }
-    // more statements
-  } */
-
-  const style = document.querySelector('style')
-  const st = sass.renderSync({
-    data: style.innerHTML,
-    outputStyle: 'compressed'
-  }).css
-  style.innerHTML = st
-
   const ce = document.createElement('script')
-  ce.innerHTML = fs.readFileSync(path.join(__src, '..', 'public', 'js', 'customElements.js'), 'utf8')
+  ce.innerHTML = script
   document.body.appendChild(ce)
 
   return window

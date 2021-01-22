@@ -1,7 +1,7 @@
 document.querySelectorAll('template')
   .forEach(template => {
     if (template.id) {
-      customElements.define(
+      window.customElements.define(
         template.id,
         class extends HTMLElement {
           static get observedAttributes () {
@@ -44,7 +44,7 @@ document.querySelectorAll('template')
               const microdata = JSON.parse(this.querySelector('script').innerText)
 
               const link = this.shadowRoot.querySelector('a')
-              if (link) link.href = microdata['@id']
+              if (link) link.href = microdata.id
 
               Object.keys(microdata).forEach(key => {
                 if (!/^@/.test(key)) {
@@ -61,7 +61,7 @@ document.querySelectorAll('template')
                         break
                       case 'brand':
                         if (typeof val === 'object') {
-                          if (val['@id']) el.innerHTML = `<a href="${val['@id']}">${val.name}</a>`
+                          if (val.id) el.innerHTML = `<a href="${val.id}">${val.name}</a>`
                           else el.innerText = val.name
                         } else {
                           el.innerText = val

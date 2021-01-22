@@ -7,9 +7,9 @@
       padding: 0;
     }
     ol.userbar {
-      background-color:hsl(0, 0%, 10%);
+      background-color:hsl(0, 0%, 14%);
       border-bottom: 1px solid;
-      border-image-source: linear-gradient(to right,hsla(0, 0%, 5%, 0), hsl(0, 0%, 5%));
+      border-image-source: linear-gradient(to right,hsla(0, 0%, 7%, 0), hsl(0, 0%, 7%));
       border-image-slice: 1;
       display: flex;
       justify-content: end;
@@ -22,7 +22,9 @@
       padding: 0;
     }
     ol > li:not(:last-of-type) {
-      border-right: 1px solid hsl(0, 0%, 5%);
+      border-style: solid;
+      border-color: hsl(0, 0%, 7%);
+      border-width: 0 1px 0 0; 
     }
 
     a {
@@ -32,10 +34,10 @@
       padding: .7em 1.5em;
     }
 
-    a:hover {
-      background-color: hsl(0, 0%, 15%);
+    li:hover {
+      background-color: hsl(0, 0%, 18%);
     }
-
+    
     li:hover > section {
       display: inherit;
     }
@@ -45,17 +47,26 @@
       position: absolute;
       right: 0;
       text-align: center;
-      background-color: hsl(0, 0%, 15%);
+      background-color: hsl(0, 0%, 18%);
       border-radius: 0 0 0 .5em;
-      box-shadow: .25em .25em .25em hsla(0, 0%, 0%,.5);
+      box-shadow: -.15em .25em .25em hsla(0, 0%, 0%, .75);
     }
     .monCompte ol {
       display: flex;
       flex-flow: column nowrap;
       text-align: left;
     }
+    .monCompte li:last-of-type {
+      border-radius: 0 0 0 .5em;
+      background-color: hsl(0, 0%, 18%);
+    }
     .monCompte li:not(:last-of-type) {
-      border-top: 1px solid hsl(0, 0%, 5%);
+      border-width: 0 0 1px;
+      border-color: hsl(0, 0%, 12%);
+      background-color: hsl(0, 0%, 18%);
+    }
+    .monCompte li:hover {
+      background-color: hsl(0, 0%, 26%);
     }
     .monCompte img {
       margin: 1em 3vw;

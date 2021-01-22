@@ -14,11 +14,11 @@ main > article > header {
 }
 @media screen and (min-width: 38em) {
   main > article {
-    grid-template: auto / repeat(auto-fit, 16em);
+    grid-template: auto / repeat(auto-fit, 14em);
   }
 }
 @media screen and (min-width: calc(34em + 4vw)) {
   main > article {
-    grid-template: auto / repeat(auto-fit, 16em);
+    grid-template: auto / repeat(auto-fit, 14em);
   }
 }
